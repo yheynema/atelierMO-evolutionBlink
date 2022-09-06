@@ -1,9 +1,5 @@
 /*
-  Version modifiée pour afficher au port série la valeur lue au potentiomètre.
-*/
-
-/*
-Afficher valeurs au port série
+  Version modifiée pour afficher au port série et l'écran OLED la valeur lue au potentiomètre.
 */
 
 int potValue = 0;
