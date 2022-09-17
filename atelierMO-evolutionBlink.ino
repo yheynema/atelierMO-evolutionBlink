@@ -1,6 +1,9 @@
 /*
   Version modifiée pour afficher au port série et l'écran OLED la valeur lue au potentiomètre.
 */
+#include "Ecran.h"
+
+Ecran monEcran;
 
 int potValue = 0;
 const int delais = 250;
@@ -9,6 +12,8 @@ const int delais = 250;
 void setup() {
   Serial.begin(115200);
   delay(100);
+  monEcran.begin();
+  
   Serial.println("Initialisation terminée - je suis prêt!");
 
 }
@@ -17,5 +22,8 @@ void setup() {
 void loop() {
   potValue = analogRead(15);
   Serial.println(potValue);
+  monEcran.effacer();
+  monEcran.ecrire(String(potValue),2,3);
+  monEcran.refresh();
   delay(delais);                    // wait for a second
 }
